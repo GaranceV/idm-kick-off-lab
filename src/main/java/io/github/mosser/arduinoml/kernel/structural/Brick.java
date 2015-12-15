@@ -26,4 +26,14 @@ public abstract class Brick implements NamedElement, Visitable {
 		this.name = name;
 	}
 
+	public Brick named(String brickName) {
+		this.name = brickName;
+		return this;
+	}
+
+	public Brick plugOnPin(int pinNumber) {
+		this.pin = pinNumber;
+		return this;
+	}
+
 }
