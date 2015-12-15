@@ -43,4 +43,28 @@ public class State implements NamedElement, Visitable {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+
+    /**
+	 * Methods below are for the DSL
+	 */
+	public State named(String name) {
+		this.name = name;
+		return this;
+	}
+
+
+	public Action executing() {
+		Action action = new Action();
+		this.actions.add(action);
+		return action;
+	}
+
+	public Transition declareTransition() {
+		Transition transition = new Transition();
+		this.transition = transition;
+		return transition;
+	}
+
+
 }
