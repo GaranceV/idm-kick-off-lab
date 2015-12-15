@@ -3,6 +3,7 @@ package io.github.mosser.arduinoml.kernel.behavioral;
 import io.github.mosser.arduinoml.kernel.generator.Visitable;
 import io.github.mosser.arduinoml.kernel.generator.Visitor;
 import io.github.mosser.arduinoml.kernel.structural.Actuator;
+import io.github.mosser.arduinoml.kernel.structural.Brick;
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
 
 public class Action implements Visitable {
@@ -31,4 +32,16 @@ public class Action implements Visitable {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+
+	public Action onActuator(Brick actuator) {
+		this.actuator = (Actuator) actuator;
+		return this;
+	}
+
+	public Action theValue(SIGNAL signal) {
+		this.value = signal;
+		return this;
+	}
+
 }
