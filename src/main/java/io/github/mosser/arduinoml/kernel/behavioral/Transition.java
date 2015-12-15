@@ -39,4 +39,26 @@ public class Transition implements Visitable {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+
+	/**
+	 * The methods below are for the DSL :
+	 */
+
+	public Transition toState(State state) {
+		this.next = state;
+		return this;
+	}
+
+	public Transition whenSensor(Brick sensor) {
+		this.sensor = (Sensor) sensor;
+		return this;
+	}
+
+	public Transition isOn(SIGNAL signal) {
+		this.value = signal;
+		return this;
+	}
+
+
 }
